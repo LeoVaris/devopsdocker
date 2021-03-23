@@ -1,0 +1,19 @@
+version: '3'
+
+services: 
+  redis_db:
+      image: redis
+      ports: 
+        - 6379:6379
+  backend:
+      image: back
+      ports: 
+        - 8080:8080
+      environment: 
+        - REDIS_HOST=redis_db
+      restart: unless-stopped
+  frontend: 
+      image: front
+      ports: 
+        - 5000:5000
+ 
