@@ -14,6 +14,8 @@ services:
       - POSTGRES_DB=mydb
     ports:
       - 5432
+    volumes:
+      - data:/var/lib/postgresql/data
   backend:
     image: back
     hostname: back
@@ -43,3 +45,6 @@ services:
     depends_on:
       - frontend
       - backend
+
+volumes:
+  data:
