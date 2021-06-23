@@ -1,13 +1,12 @@
-import random
+a = """ 1
+        1
+        1
+"""
 
-n = 1000
+print("a:", a)
 
-in_a = 0
+b = "1" + \
+	"1" + \
+	"1"
 
-for _ in range(n):
-	x = random.random() * 2
-	y = random.random() * 4
-	if y > x*x:
-		in_a += 1
-
-print(in_a)
+print("b:",b)

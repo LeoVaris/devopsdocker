@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: app
+    environment:
+      - GITHUB_REPOSITORY=${GITHUB_REPOSITORY}
+      - IMAGE=${IMAGE}
+    volumes:
+      - ./:/usr/app
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: tower
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=10 # Very fast
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
